@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: var(--font);
+}
+:root {
+  --font: "Roboto", sans-serif;
+  --main-color: #d3ad7f;
+  --black: #13131a;
+  --bg: #010103;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+body {
+  background-color: var(--bg);
+  color: #fff;
+}
+section {
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 0 0 20px 20px;
+  border-bottom: var(--border);
+  backdrop-filter: blur(4px);
+}
+.header section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+.logo {
+  height: 50px;
+}
+.icons img {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.navbar a {
+  position: relative;
+  color: #fff;
+  margin: 0 1rem;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+.navbar a:hover {
+  color: var(--main-color);
+  width: 100%;
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.navbar a:hover::after {
+  width: 100%;
+}
+.navbar a::after {
+  content: "";
+  position: absolute;
+  background-color: var(--main-color);
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  transition: width 0.4s ease;
+  width: 0;
+}
+.homeContainer {
+  background: url("https://i.ibb.co/KX8pvpC/home-img.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding: 0 1rem;
+}
+.homeContainer section {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+.content {
+  max-width: 30rem;
+  margin: 3rem;
+  color: #fff;
+}
+.content h3 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 0.1rem;
+}
+.content p {
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  font-weight: 100;
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+.btn {
+  display: inline-block;
+  background-color: var(--main-color);
+  border-radius: 20px;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  background-color: #fff;
+  color: var(--main-color);
+  letter-spacing: 0.1rem;
+}
+.title {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: var(--main-color);
+  text-align: center;
+  padding-bottom: 1.2rem;
+}
+span {
+  text-transform: uppercase;
+  color: #fff;
+}
+.row {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  gap: 1.5rem;
+  background-color: var(--black);
+}
+.row .content h3 {
+  font-size: 2rem;
+}
+.row.content {
+  font-size: 0.9rem;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.card {
+  background-color: var(--black);
+  padding: 2rem;
+  margin: 10px;
+}
