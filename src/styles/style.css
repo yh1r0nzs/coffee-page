@@ -5,7 +5,6 @@
   outline: none;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
   font-family: var(--font);
 }
 :root {
@@ -15,7 +14,13 @@
   --bg: #010103;
   --border: 0.1rem solid rgba(255, 255, 255, 0.3);
 }
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
+  padding-top: 4rem;
   background-color: var(--bg);
   color: #fff;
 }
@@ -57,9 +62,6 @@ section {
 }
 .navbar a:hover {
   color: var(--main-color);
-  width: 100%;
-  padding-bottom: 0.5rem;
-  font-size: 1.5rem;
 }
 .navbar a:hover::after {
   width: 100%;
@@ -79,6 +81,7 @@ section {
   background-position: center;
   background-size: cover;
   height: 100vh;
+  width: 100%;
   padding: 0 1rem;
 }
 .homeContainer section {
@@ -88,7 +91,7 @@ section {
 }
 .content {
   max-width: 30rem;
-  margin: 3rem;
+  margin: 4rem;
   color: #fff;
 }
 .content h3 {
@@ -128,26 +131,109 @@ span {
   text-transform: uppercase;
   color: #fff;
 }
+.sobreContainer {
+  display: flex;
+  flex-direction: column;
+}
 .row {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   border-radius: 20px;
   gap: 1.5rem;
   background-color: var(--black);
 }
+.row img {
+  border-radius: 20px;
+  width: 50%;
+  max-width: 700px;
+  flex: 1;
+  text-align: center;
+  object-fit: cover;
+}
 .row .content h3 {
   font-size: 2rem;
 }
-.row.content {
+.row .content {
+  width: 50%;
   font-size: 0.9rem;
+  flex: 1;
+}
+.row button {
+  display: flex;
+  justify-content: center;
+  justify-self: stretch;
 }
 
 .cardContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+  margin: 0 auto;
 }
 .card {
-  background-color: var(--black);
+  border: var(--border);
   padding: 2rem;
+  border-radius: 20px;
   margin: 10px;
+}
+.card img {
+  width: 100px;
+}
+.card h3 {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+.price {
+  padding: 0.5rem;
+  font-weight: 200;
+  font-size: 1.3rem;
+}
+
+.reviewContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.reviewCard {
+  background-color: var(--black);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.reviewCard p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+
+.users {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+}
+
+.reviewCard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.stars {
+  color: var(--main-color);
+  font-size: 1.2rem;
+}
+@media (max-width: 500px) {
+  .header section {
+    text-align: center;
+    flex-direction: column;
+  }
+  .content {
+    margin: 1rem;
+  }
 }
