@@ -7,3 +7,14 @@ menu.addEventListener("click", () => {
   navbar.classList.toggle("active");
   header.classList.toggle("menu-open");
 });
+const items = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+items.forEach((item) => observer.observe(item));
