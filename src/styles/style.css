@@ -38,6 +38,7 @@ section {
 span {
   text-transform: uppercase;
   color: #fff;
+  text-shadow: 0 0 5px #fff;
 }
 iframe {
   border-radius: 20px;
@@ -48,7 +49,7 @@ iframe {
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition-delay: 0.6s ease;
+  transition: all 0.9s ease;
 }
 .reveal.show {
   opacity: 1;
@@ -79,15 +80,6 @@ iframe {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  flex-wrap: wrap;
-}
-.icons {
-  display: flex;
-  gap: 1rem;
-}
-.icons img {
-  margin-left: 1rem;
-  cursor: pointer;
 }
 .logo {
   height: 50px;
@@ -99,6 +91,26 @@ iframe {
   font-size: 1.4rem;
   transition: all 0.3s ease;
 }
+.cart-btn {
+  background: transparent;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+}
+.cart-count {
+  background-color: var(--main-color);
+  color: var(--black);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -2px;
+}
+
 /*Menu Hamburguer*/
 .menu-toggle {
   display: none;
@@ -127,7 +139,7 @@ iframe {
 /*Home*/
 .homeContainer {
   background: url("https://i.ibb.co/KX8pvpC/home-img.jpg") center / cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 .homeContainer section {
   display: flex;
@@ -141,12 +153,15 @@ iframe {
 }
 .content h3 {
   font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  text-shadow: 0 0 4px var(--main-color);
   margin-bottom: 0.1rem;
 }
 .content p {
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   font-weight: 100;
-  line-height: 1.8;
+  line-height: 1.6;
+  text-shadow: 0 0 3px var(--main-color);
   padding: 1rem 0;
 }
 /*Botoes*/
@@ -155,8 +170,8 @@ iframe {
   background-color: var(--main-color);
   border-radius: 20px;
   color: #fff;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
+  padding: 1rem 2rem;
+  font-weight: 600;
   margin-top: 0.4rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -268,6 +283,11 @@ footer {
   transition: all 0.3s ease;
 }
 /*Interações*/
+.cart-btn:hover {
+  color: var(--main-color);
+  transform: translateY(-1px);
+}
+
 .navbar a:hover {
   color: var(--main-color);
 }
@@ -290,11 +310,18 @@ footer {
 .btn:hover {
   background-color: #fff;
   color: var(--main-color);
+  box-shadow: 0 0 20px rgba(211, 173, 127, 0.4);
   letter-spacing: 0.1rem;
 }
+.btn:focus-visible {
+  outline: 2px solid var(--main-color);
+  outline-offset: 4px;
+}
+
 .card:hover,
 .reviewCard:hover {
   background-color: #fff;
+  transform: translateY(-6px);
 }
 .card:hover > *,
 .reviewCard:hover > * {
@@ -334,6 +361,9 @@ footer {
 }
 
 @media (max-width: 500px) {
+  section {
+    padding: 2rem 1.25rem;
+  }
   .content {
     margin: 1rem;
   }

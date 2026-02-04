@@ -18,3 +18,31 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 items.forEach((item) => observer.observe(item));
+
+const buttons = document.querySelectorAll(".add-to-cart");
+const cartCount = document.querySelector(".cart-count");
+
+let cart = [];
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const item = {
+      name: btn.dataset.name,
+      price: Number(btn.dataset.price),
+    };
+
+    cart.push(item);
+    cartCount.textContent = cart.length;
+
+    const originalText = btn.textContent;
+
+    btn.textContent = "✓ Adicionado";
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }, 1200);
+    btn.blur();
+  });
+});
